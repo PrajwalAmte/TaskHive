@@ -1,18 +1,13 @@
 package com.TaskHive.controller;
 
-import com.TaskHive.models.Task;
 import com.TaskHive.service.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
-//@RequestMapping("/tasks")
+@RequestMapping("/tasks")
 public class TaskController {
 
     private final TaskService taskService;
@@ -22,27 +17,26 @@ public class TaskController {
     }
 
     @GetMapping
-    public String getTask(Model model){
-        List<Task> tasks = taskService.getAllTasks();
-        model.addAttribute("tasks",tasks);
+    public String getTasks(Model model) {
+        model.addAttribute("tasks", taskService.getAllTasks());
         return "tasks";
     }
 
     @PostMapping
-    public String createTask(@RequestParam String title){
-        taskService.createTask(title);
-        return "redirect:/";
+    public String createTask(@RequestParam String title, @RequestParam String description, @RequestParam String dueDate) {
+        taskService.createTask(title, description, dueDate);
+        return "redirect:/tasks";
     }
 
     @GetMapping ("/{id}/delete")
     public String deleteTask(@PathVariable Long id){
         taskService.deleteTask(id);
-        return "redirect:/";
+        return "redirect:/tasks";
     }
 
     @GetMapping ("/{id}/toggle")
     public String toggleTask(@PathVariable Long id){
         taskService.toggleTask(id);
-        return "redirect:/";
+        return "redirect:/tasks";
     }
 }

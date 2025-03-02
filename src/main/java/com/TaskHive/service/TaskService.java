@@ -4,6 +4,7 @@ import com.TaskHive.models.Task;
 import com.TaskHive.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,10 +20,12 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public void createTask(String title) {
+    public void createTask(String title, String description, String dueDate) {
         Task task = new Task();
         task.setTitle(title);
+        task.setDescription(description);
         task.setCompleted(false);
+        task.setDueDate(LocalDate.parse(dueDate));
         taskRepository.save(task);
     }
 
