@@ -1,0 +1,31 @@
+<div class="task-list-container">
+  <div class="page-header">
+    <h1 class="page-title">All Tasks</h1>
+    <a routerLink="/tasks/create" class="create-task-btn">+ New Task</a>
+  </div>
+  
+  <app-task-filters (filterChange)="onFilterChange($event)"></app-task-filters>
+  
+  <div class="task-list" *ngIf="!loading && !error">
+    <div *ngIf="filteredTasks.length === 0" class="empty-state">
+      <p>No tasks found. Create a new task to get started.</p>
+      <a routerLink="/tasks/create" class="create-task-link">Create Task</a>
+    </div>
+    
+    <app-task-item 
+      *ngFor="let task of filteredTasks" 
+      [task]="task"
+      (toggle)="onToggleTask($event)"
+      (delete)="onDeleteTask($event)"
+    ></app-task-item>
+  </div>
+  
+  <div *ngIf="loading" class="loading-state">
+    <p>Loading tasks <span class="cursor"></span></p>
+  </div>
+  
+  <div *ngIf="error" class="error-state terminal-container">
+    <p class="error-message">{{ error }}</p>
+    <button (click)="loadTasks()" class="retry-button">Retry</button>
+  </div>
+</div>

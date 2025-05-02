@@ -1,0 +1,29 @@
+<div class="task-due-date-container">
+  <div class="page-header">
+    <h1 class="page-title">Tasks Due on {{ formattedDate }}</h1>
+    <a routerLink="/tasks" class="back-link">Back to All Tasks</a>
+  </div>
+  
+  <div class="task-list" *ngIf="!loading && !error">
+    <div *ngIf="tasks.length === 0" class="empty-state">
+      <p>No tasks due on {{ formattedDate }}</p>
+      <a routerLink="/tasks/create" class="create-task-link">Create New Task</a>
+    </div>
+    
+    <app-task-item 
+      *ngFor="let task of tasks" 
+      [task]="task"
+      (toggle)="onToggleTask($event)"
+      (delete)="onDeleteTask($event)"
+    ></app-task-item>
+  </div>
+  
+  <div *ngIf="loading" class="loading-state">
+    <p>Loading tasks <span class="cursor"></span></p>
+  </div>
+  
+  <div *ngIf="error" class="error-state terminal-container">
+    <p class="error-message">{{ error }}</p>
+    <button (click)="loadTasks()" class="retry-button">Retry</button>
+  </div>
+</div>

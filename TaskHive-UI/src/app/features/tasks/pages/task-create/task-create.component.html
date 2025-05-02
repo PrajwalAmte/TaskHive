@@ -1,0 +1,11 @@
+<div class="task-create-container">
+  <div class="page-header">
+    <h1 class="page-title">Create New Task</h1>
+  </div>
+  
+  <app-task-form
+    submitButtonText="Create Task"
+    (submitTask)="onSubmit($event)"
+    (cancel)="onCancel()"
+  ></app-task-form>
+</div>

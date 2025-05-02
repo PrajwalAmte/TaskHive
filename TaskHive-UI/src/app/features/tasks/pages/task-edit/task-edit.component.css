@@ -1,0 +1,59 @@
+.task-edit-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  color: var(--text-secondary);
+}
+
+.error-state {
+  padding: 16px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.error-message {
+  color: var(--error-color);
+  margin: 0 0 16px 0;
+}
+
+.retry-button, .cancel-button {
+  margin: 0 8px;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.cancel-button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.retry-button:hover {
+  background-color: var(--accent-color);
+}
+
+.cancel-button:hover {
+  background-color: var(--border-color);
+}

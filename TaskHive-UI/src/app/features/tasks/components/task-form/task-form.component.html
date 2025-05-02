@@ -1,0 +1,95 @@
+<div class="task-form-container terminal-container">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="terminal-button close"></span>
+      <span class="terminal-button minimize"></span>
+      <span class="terminal-button maximize"></span>
+    </div>
+    <div class="terminal-title">{{ task.id ? 'Edit Task' : 'Create New Task' }}</div>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()" #taskForm="ngForm" class="task-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input 
+        type="text" 
+        id="title" 
+        name="title"
+        [(ngModel)]="task.title"
+        required
+        #title="ngModel"
+        placeholder="Task title..."
+      >
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="error-message">
+        Title is required
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea 
+        id="description" 
+        name="description"
+        rows="3"
+        [(ngModel)]="task.description"
+        placeholder="Task description (optional)..."
+      ></textarea>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <input 
+          type="date" 
+          id="dueDate" 
+          name="dueDate"
+          [(ngModel)]="task.dueDate"
+          [min]="minDate"
+          required
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select 
+          id="priority" 
+          name="priority"
+          [(ngModel)]="task.priority"
+          required
+        >
+          <option *ngFor="let p of priorities" [value]="p">{{ p }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select 
+        id="category" 
+        name="category"
+        [(ngModel)]="task.category"
+      >
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="reminder">Reminder (Optional)</label>
+      <input 
+        type="datetime-local" 
+        id="reminder" 
+        name="reminder"
+        [(ngModel)]="task.reminder"
+      >
+    </div>
+    
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      <button 
+        type="submit" 
+        class="btn-submit"
+        [disabled]="taskForm.invalid"
+      >{{ submitButtonText }}</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="command-bar">
+  <div class="command-input-wrapper">
+    <span class="prompt">$</span>
+    <input 
+      type="text" 
+      class="command-input"
+      placeholder="Type a command (help for list of commands)..."
+      [(ngModel)]="commandInput"
+      (keyup.enter)="executeCommand()"
+      [disabled]="isExecuting"
+    >
+  </div>
+  
+  <div class="command-history" *ngIf="showHistory && commandHistory.length > 0">
+    <div *ngFor="let item of visibleHistory" class="history-item">
+      <div class="history-command">
+        <span class="prompt">$</span> {{ item.command }}
+      </div>
+      <div class="history-output" *ngIf="item.output">{{ item.output }}</div>
+    </div>
+  </div>
+</div>

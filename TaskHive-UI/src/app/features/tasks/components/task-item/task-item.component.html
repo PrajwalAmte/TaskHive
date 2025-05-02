@@ -1,0 +1,31 @@
+<div class="task-item" [class.completed]="task.completed">
+  <div class="task-content">
+    <div class="task-checkbox">
+      <button class="checkbox-btn" (click)="toggleTask()">
+        <span class="checkbox" [class.checked]="task.completed">
+          {{ task.completed ? '✓' : ' ' }}
+        </span>
+      </button>
+    </div>
+    
+    <div class="task-details">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p class="task-description" *ngIf="task.description">{{ task.description }}</p>
+      
+      <div class="task-meta">
+        <span class="task-date">Due: {{ task.dueDate | date:'mediumDate' }}</span>
+        <span class="task-priority" [class]="getPriorityClass(task.priority)">{{ task.priority }}</span>
+        <span class="task-category" *ngIf="task.category">{{ task.category }}</span>
+      </div>
+      
+      <div class="task-timestamp" *ngIf="task.updatedAt">
+        Last updated: {{ getTimeAgo(task.updatedAt) }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="task-actions">
+    <a [routerLink]="['/tasks/edit', task.id]" class="task-action">Edit</a>
+    <button class="task-action delete" (click)="deleteTask()">Delete</button>
+  </div>
+</div>

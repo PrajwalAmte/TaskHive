@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="terminal-button close"></span>
+      <span class="terminal-button minimize"></span>
+      <span class="terminal-button maximize"></span>
+    </div>
+    
+    <h1 class="terminal-title">TaskHive</h1>
+    
+    <button class="theme-toggle" (click)="toggleTheme()" title="Toggle theme">
+      {{ isDarkTheme ? '☀️' : '🌙' }}
+    </button>
+  </div>
+  
+  <nav class="main-nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a routerLink="/tasks" routerLinkActive="active">Tasks</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/tasks/upcoming" routerLinkActive="active">Upcoming</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/tasks/create" routerLinkActive="active">Create</a>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,23 @@
+<div class="task-edit-container">
+  <div class="page-header">
+    <h1 class="page-title">Edit Task</h1>
+  </div>
+  
+  <div *ngIf="loading" class="loading-state">
+    <p>Loading task <span class="cursor"></span></p>
+  </div>
+  
+  <div *ngIf="error" class="error-state terminal-container">
+    <p class="error-message">{{ error }}</p>
+    <button (click)="loadTask()" class="retry-button">Retry</button>
+    <button (click)="onCancel()" class="cancel-button">Go Back</button>
+  </div>
+  
+  <app-task-form
+    *ngIf="!loading && !error && task"
+    [task]="task"
+    submitButtonText="Update Task"
+    (submitTask)="onSubmit($event)"
+    (cancel)="onCancel()"
+  ></app-task-form>
+</div>

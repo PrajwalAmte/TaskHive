@@ -1,0 +1,133 @@
+.task-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.task-item.completed {
+  opacity: 0.7;
+}
+
+.task-content {
+  display: flex;
+  gap: 12px;
+}
+
+.task-checkbox {
+  flex-shrink: 0;
+}
+
+.checkbox-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.checkbox.checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.task-details {
+  flex: 1;
+}
+
+.task-title {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.task-description {
+  margin: 0 0 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.task-date,
+.task-priority,
+.task-category {
+  font-size: 12px;
+  padding: 2px 6px;
+  background-color: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.task-timestamp {
+  font-size: 12px;
+  color: var(--text-disabled);
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.task-action {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.task-action:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.task-action.delete:hover {
+  background-color: var(--error-color);
+}
+
+.completed .task-title {
+  text-decoration: line-through;
+}
+
+@media (min-width: 768px) {
+  .task-item {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .task-actions {
+    flex-shrink: 0;
+  }
+}

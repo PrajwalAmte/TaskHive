@@ -1,0 +1,37 @@
+<div class="task-filters">
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search tasks..."
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="applySearchFilter()"
+    >
+    <button (click)="applySearchFilter()" title="Search">Search</button>
+  </div>
+  
+  <div class="filter-controls">
+    <div class="filter-group">
+      <label for="priority-filter">Priority:</label>
+      <select 
+        id="priority-filter" 
+        [(ngModel)]="selectedPriority"
+        (change)="applyPriorityFilter()"
+      >
+        <option *ngFor="let p of priorities" [value]="p">{{ p }}</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label for="category-filter">Category:</label>
+      <select 
+        id="category-filter" 
+        [(ngModel)]="selectedCategory"
+        (change)="applyCategoryFilter()"
+      >
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+    
+    <button class="clear-filters" (click)="clearFilters()">Clear Filters</button>
+  </div>
+</div>
