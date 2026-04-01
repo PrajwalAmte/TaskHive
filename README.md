@@ -6,13 +6,19 @@ A modern task management application with a terminal-inspired interface that sup
 
 TaskHive combines a Spring Boot backend with an Angular frontend to deliver a responsive, efficient task management experience. The application features both dark and light themes and caters to both traditional users and power users who prefer command-line interactions.
 
+## Dashboard Screenshots
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![TaskHive dashboard in light mode](./LightMode-Dashboard.png) | ![TaskHive dashboard in dark mode](./DarkMode-Dashboard.png) |
+
 ## Core Features
 
 TaskHive offers comprehensive task management capabilities including creation, viewing, updating, and deletion of tasks. Users can mark tasks as complete/incomplete, filter by priority/category/due date, search by title or description, and access upcoming tasks. The application features both a graphical interface and a terminal-style command interface with dark/light theme toggling.
 
 ## Tech Stack
 
-**Backend**: Spring Boot 3.x, Spring Data JPA, H2 Database (configurable), Java 23+, Maven  
+**Backend**: Spring Boot 3.x, Spring Data JPA, MySQL, Java 23+, Maven  
 **Frontend**: Angular 19, TypeScript, RxJS, Angular Material, CSS Custom Properties
 
 ## Quick Start
@@ -25,13 +31,14 @@ TaskHive offers comprehensive task management capabilities including creation, v
 ```bash
 git clone https://github.com/PrajwalAmte/TaskHive.git
 cd TaskHive
-mvn clean install
-mvn spring-boot:run
+cd TaskHive-API
+./mvnw clean install
+./mvnw spring-boot:run
 ```
 
 ### Frontend Setup
 ```bash
-cd frontend
+cd TaskHive-UI
 npm install
 npm start
 ```
@@ -78,6 +85,11 @@ The project follows a clean architecture with clear separation of concerns:
 **Backend**: Use IntelliJ IDEA or Eclipse. Run tests with `mvn test`. API documentation available at `/swagger-ui.html`.
 
 **Frontend**: Use Visual Studio Code with recommended extensions. Run tests with `ng test`, build with `ng build --prod`, and lint with `ng lint`.
+
+## Learning Journey
+
+TaskHive was built as a hands-on learning project for Spring Boot and Angular.
+Detailed notes on concepts practiced, challenges addressed, and outcomes are documented in [LEARNING.md](./LEARNING.md).
 
 ## Contributing
 

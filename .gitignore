@@ -1,71 +1,27 @@
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### IntelliJ IDEA ###
-*.iws
-*.iml
-*.ipr
-
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-
-# IDE and system folders
+# OS / IDE
+.DS_Store
 .idea/
 .vscode/
-.DS_Store
 
-# Node modules and build artifacts
+# Env files
+.env
+
+# Node
 node_modules/
 dist/
+
+# Java / Maven
+*.class
+*.log
+target/
 build/
 out/
 
-# Environment files
-.env
-
-# Java/Maven specific
-*.class
-target/
-*.log
-target/
+# Keep Maven wrapper jar
 !.mvn/wrapper/maven-wrapper.jar
+
+# Keep nested target/build directories inside source trees if present
 !**/src/main/**/target/
 !**/src/test/**/target/
-
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
-
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
